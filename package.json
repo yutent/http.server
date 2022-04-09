@@ -1,6 +1,6 @@
 {
-  "name": "simple.http",
-  "displayName": "simple.http",
+  "name": "simple-http",
+  "displayName": "simple http",
   "description": "🔥 简单的http服务器, 方便临时调试html",
   "version": "1.0.0",
   "publisher": "yutent",
