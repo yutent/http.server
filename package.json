@@ -1,0 +1,57 @@
+{
+  "name": "simple.http",
+  "displayName": "simple.http",
+  "description": "🔥 简单的http服务器, 方便临时调试html",
+  "version": "1.0.0",
+  "publisher": "yutent",
+  "author": "Yutent [@yutent]",
+  "icon": "logo.png",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "out.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "HttpServer.open",
+        "title": "在浏览器中打开"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "!inOutput",
+          "command": "HttpServer.open",
+          "title": "在浏览器中打开"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yutent/http.server.git"
+  },
+  "keywords": [
+    "http.server",
+    "http server",
+    "simple http",
+    "yutent"
+  ],
+  "scripts": {
+    "start": "esbuild index.js --bundle --outfile=out.js --external:vscode --format=cjs --platform=node",
+    "pack": "npm start -- --minify"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "iofs": "^1.5.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.14"
+  }
+}
