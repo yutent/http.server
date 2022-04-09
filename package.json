@@ -48,10 +48,9 @@
     "pack": "npm start -- --minify"
   },
   "license": "MIT",
-  "dependencies": {
-    "iofs": "^1.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "iofs": "^1.5.0",
     "esbuild": "^0.12.14"
   }
 }
