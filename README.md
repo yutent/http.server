@@ -1,9 +1,9 @@
 # simple.http
 > 🔥 简单的http服务器, 方便临时调试html。
 
-[![Version](https://vsmarketplacebadge.apphb.com/version-short/yutent.simple.http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple.http)
-[![Rating](https://vsmarketplacebadge.apphb.com/rating-short/yutent.simple.http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple.http)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/yutent.simple.http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple.http)
+[![Version](https://vsmarketplacebadge.apphb.com/version-short/yutent.simple-http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple-http)
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-short/yutent.simple-http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple-http)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/yutent.simple-http.svg)](https://marketplace.visualstudio.com/items?itemName=yutent.simple-http)
 
 ## 插件说明
 > 这插件只是应一个基友需求, 临时写的。如果你有其他的功能需求, 请在插件商店中`搜索其他插件`。
