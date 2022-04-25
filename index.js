@@ -126,7 +126,7 @@ function __init__() {
       if (conf.headers) {
         for (let k in conf.headers) {
           let _k = k.toLowerCase()
-          if (['accept-ranges', 'content-type', 'content-length'].contains(_k)) {
+          if (['accept-ranges', 'content-type', 'content-length'].includes(_k)) {
             continue
           }
           COMMON_HEADERS[_k] = conf.headers[k]
