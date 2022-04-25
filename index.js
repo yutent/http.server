@@ -112,6 +112,11 @@ function __init__() {
     //
     if (fs.isfile(file)) {
       let conf = JSON.parse(fs.cat(file).toString())
+
+      if (conf.root) {
+        root = join(root, conf.root)
+      }
+
       if (conf.enabled) {
         enabled = true
         port = conf.port || 23333
