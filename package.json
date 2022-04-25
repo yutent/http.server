@@ -2,7 +2,7 @@
   "name": "simple-http",
   "displayName": "simple http",
   "description": "🔥 简单的http服务器, 方便临时调试html",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publisher": "yutent",
   "author": "Yutent [@yutent]",
   "icon": "logo.png",
