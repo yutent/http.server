@@ -68,9 +68,7 @@ function createServer() {
   std.out(`尝试使用${port}端口...`)
   http
     .createServer(function (req, res) {
-      let pathname = parse(req.url)
-        .pathname.slice(1)
-        .replace(/[\/]+$/, '')
+      let pathname = parse(req.url).pathname.slice(1)
 
       pathname = decode(pathname) || 'index.html'
 
@@ -95,6 +93,7 @@ function createServer() {
       } else {
         res.setHeader('content-type', MIME_TYPES.html)
         res.setHeader('content-length', 0)
+        res.setHeader('x-url', file)
         res.writeHead(404, 'Not Found')
         res.end('')
       }
