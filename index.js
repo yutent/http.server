@@ -39,6 +39,13 @@ const MIME_TYPES = {
   other: 'application/octet-stream'
 }
 
+const COMMON_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': '*',
+  'Cache-Control': 'no-store',
+  'X-Powered-By': 'VS Code simple.http'
+}
+
 MIME_TYPES.htm = MIME_TYPES.html
 MIME_TYPES.jpeg = MIME_TYPES.jpg
 MIME_TYPES.tif = MIME_TYPES.tiff
@@ -71,20 +78,19 @@ function createServer() {
       let stat = fs.stat(file)
       let ext = pathname.split('.').pop()
 
-      res.setHeader('Access-Control-Allow-Origin', '*')
-      res.setHeader('Access-Control-Allow-Headers', '*')
-      res.setHeader('Cache-Control', 'no-store')
-      res.setHeader('X-Powered-By', 'VS Code simple.http')
+      for (let k in COMMON_HEADERS) {
+        res.setHeader(k, COMMON_HEADERS[k])
+      }
 
       if (stat.isFile()) {
-        res.setHeader('Accept-Ranges', 'bytes')
-        res.setHeader('Content-Type', MIME_TYPES[ext] || MIME_TYPES.other)
-        res.setHeader('Content-Length', stat.size)
+        res.setHeader('accept-ranges', 'bytes')
+        res.setHeader('content-type', MIME_TYPES[ext] || MIME_TYPES.other)
+        res.setHeader('content-length', stat.size)
         res.writeHead(200, 'OK')
         fs.origin.createReadStream(file).pipe(res)
       } else {
-        res.setHeader('Content-Type', MIME_TYPES.html)
-        res.setHeader('Content-Length', 0)
+        res.setHeader('content-type', MIME_TYPES.html)
+        res.setHeader('content-length', 0)
         res.writeHead(404, 'Not Found')
         res.end('')
       }
@@ -115,6 +121,16 @@ function __init__() {
 
       if (conf.root) {
         root = join(root, conf.root)
+      }
+
+      if (conf.headers) {
+        for (let k in conf.headers) {
+          let _k = k.toLowerCase()
+          if (['accept-ranges', 'content-type', 'content-length'].contains(_k)) {
+            continue
+          }
+          COMMON_HEADERS[_k] = conf.headers[k]
+        }
       }
 
       if (conf.enabled) {
