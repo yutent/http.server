@@ -74,6 +74,10 @@ function createServer() {
 
       pathname = decode(pathname) || 'index.html'
 
+      if (pathname.endsWith('/')) {
+        pathname += 'index.html'
+      }
+
       let file = join(root, pathname)
       let stat = fs.stat(file)
       let ext = pathname.split('.').pop()
